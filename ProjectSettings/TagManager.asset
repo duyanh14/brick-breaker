@@ -8,6 +8,7 @@ TagManager:
   - Unbreakable
   - Transparent
   - MenuOptionWithChild
+  - Potion
   layers:
   - Default
   - TransparentFX
@@ -15,8 +16,8 @@ TagManager:
   - 
   - Water
   - UI
-  - 
-  - 
+  - Potion
+  - Paddle
   - 
   - 
   - 

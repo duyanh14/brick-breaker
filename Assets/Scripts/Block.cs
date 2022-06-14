@@ -9,6 +9,8 @@ public class Block : MonoBehaviour
     [SerializeField] public GameObject destroyedBlockParticlesVFX;
     [SerializeField] public int maxHits;
     [SerializeField] public Sprite[] damageSprites;
+    
+    [SerializeField] public Potion potionPrefab;
 
     // references to other objects
     private LevelController _levelController;
@@ -97,8 +99,20 @@ public class Block : MonoBehaviour
 
         // increments destroyed blocks of the level
         _levelController.DecrementBlocksCounter();
+        
+        // Drop potion
+        DropPotion();
     }
-
+    
+    private void DropPotion()
+    {
+        if (Random.Range(1, 100) > 80)
+        {
+            return;
+        }
+        Instantiate(potionPrefab, transform.position, Quaternion.identity);
+    }
+    
     /**
      * Plays VFX and SFX when a block is destroyed.
      */
