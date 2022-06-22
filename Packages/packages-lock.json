@@ -1,5 +1,20 @@
 {
   "dependencies": {
+    "com.grashaar.unity-objectpooling": {
+      "version": "file:D:/Unity/Unity.ObjectPooling-master",
+      "depth": 0,
+      "source": "local",
+      "dependencies": {
+        "com.laicasaane.unity-supplements": "2.6.0"
+      }
+    },
+    "com.laicasaane.unity-supplements": {
+      "version": "2.6.0",
+      "depth": 0,
+      "source": "registry",
+      "dependencies": {},
+      "url": "https://package.openupm.com"
+    },
     "com.unity.2d.animation": {
       "version": "7.0.5",
       "depth": 0,
