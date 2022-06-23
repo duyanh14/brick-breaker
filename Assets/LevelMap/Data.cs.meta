@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 636c8f9b7d0489449a1fb2a253248260
+guid: 8c557fd2e94953b4d8e0dc493275edb9
 labels:
 - Cell
 - Cells
@@ -14,9 +14,13 @@ labels:
 - Scroller
 - UI
 - Virtualize
-timeCreated: 1436470679
+timeCreated: 1436467380
 licenseType: Store
-DefaultImporter:
+MonoImporter:
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
   userData: 
   assetBundleName: 
   assetBundleVariant: 
