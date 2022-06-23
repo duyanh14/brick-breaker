@@ -8,5 +8,6 @@
         public int level;
         public bool disable;
         public int star;
+        public bool line;
     }
 }

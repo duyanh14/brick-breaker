@@ -11,16 +11,21 @@ namespace EnhancedScrollerDemos.GridSimulation
     {
         public GameObject container;
         public GameObject lineH;
+        public GameObject lineV;
         public TMP_Text level;
         public GameObject tutorial;
         public GameObject[] star;
+        public GameObject disable;
 
+        private Data data;
+        
         public void SetData(Data data)
         {
-            
             if (data != null)
             {
-                if (data.level == 0)
+                this.data = data;
+                
+                if (data.level == 1)
                 {
                     level.text = "";
                     tutorial.SetActive(true);
@@ -28,16 +33,20 @@ namespace EnhancedScrollerDemos.GridSimulation
                 else
                 {
                     level.text = data.level.ToString();
+                    tutorial.SetActive(false);
                 }
 
                 for (int i = 0; i < star.Length; i++)
                 {
                     if (i + 1 <= data.star)
                     {
-                       continue;
+                        continue;
                     }
                     star[i].SetActive(false);
                 }
+
+                disable.SetActive(data.disable);
+                lineV.SetActive(data.line);
             }
         }
     }

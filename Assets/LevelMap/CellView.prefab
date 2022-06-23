@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 22431160}
   - component: {fileID: 22249536}
   - component: {fileID: 114007081369048494}
-  - component: {fileID: 3347773737663134169}
+  - component: {fileID: 6104256643769476372}
   m_Layer: 5
   m_Name: CellView
   m_TagString: Untagged
@@ -69,7 +69,7 @@ MonoBehaviour:
   - {fileID: 6970535101133021564}
   - {fileID: 699650847037625487}
   - {fileID: 5198151454421919004}
---- !u!114 &3347773737663134169
+--- !u!114 &6104256643769476372
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -89,8 +89,8 @@ MonoBehaviour:
   m_ChildAlignment: 1
   m_StartCorner: 0
   m_StartAxis: 0
-  m_CellSize: {x: 100, y: 100}
-  m_Spacing: {x: 50, y: 0}
+  m_CellSize: {x: 150, y: 100}
+  m_Spacing: {x: 0, y: 0}
   m_Constraint: 0
   m_ConstraintCount: 2
 --- !u!1001 &1184227304208826708

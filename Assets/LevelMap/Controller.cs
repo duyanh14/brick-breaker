@@ -1,5 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.ArrayBased;
+using System.Collections.Generic;
 using EnhancedUI;
 using EnhancedUI.EnhancedScroller;
 
@@ -17,7 +19,7 @@ namespace EnhancedScrollerDemos.GridSimulation
         /// Internal representation of our data. Note that the scroller will never see
         /// this, so it separates the data from the layout using MVC principles.
         /// </summary>
-        private SmallList<Data> _data;
+        private List<Data> _data;
 
         /// <summary>
         /// This is our scroller we will be a delegate for
@@ -56,17 +58,43 @@ namespace EnhancedScrollerDemos.GridSimulation
         private void LoadData()
         {
             // set up some simple data
-            _data = new SmallList<Data>();
-            for (var i = 0; i < 40; i ++)
+            _data = new List<Data>();
+
+            int z = 1;
+            for (int i = 0; i < 10; i++)
             {
-                _data.Add(new Data()
+                if (i % 2 == 0)
                 {
-                    level = i+1,
-                    disable = false,
-                    star = 3
-                });
+                    for (int j = z + 3; j >= z; j--)
+                    {
+                        _data.Add(new Data()
+                        {
+                            level = j,
+                            disable = j > 2 ? true : false, // thay doi
+                            star = 2, // thay doi
+                            line = (j != 1 && j == z)? true : false
+                        });
+                    }
+                }
+                else
+                {
+                    for (int j = z; j < z + 4; j++)
+                    {
+                        
+                        _data.Add(new Data()
+                        {
+                            level = j,
+                            disable = j > 2 ? true : false, // thay doi
+                            star = 2, // thay doi
+                            line = (j != 1 && j == z)? true : false
+                        });
+                    }
+                }
+                z += 4;
             }
 
+            _data.Reverse();
+          
             // tell the scroller to reload now that we have the data
             scroller.ReloadData();
         }
@@ -81,7 +109,7 @@ namespace EnhancedScrollerDemos.GridSimulation
         /// <returns>The number of cells</returns>
         public int GetNumberOfCells(EnhancedScroller scroller)
         {
-            return Mathf.CeilToInt((float)_data.Count / (float)numberOfCellsPerRow);
+            return Mathf.CeilToInt((float) _data.Count / (float) numberOfCellsPerRow);
         }
 
         /// <summary>
@@ -112,7 +140,8 @@ namespace EnhancedScrollerDemos.GridSimulation
             // it will create a new cell.
             CellView cellView = scroller.GetCellView(cellViewPrefab) as CellView;
 
-            cellView.name = "Cell " + (dataIndex * numberOfCellsPerRow).ToString() + " to " + ((dataIndex * numberOfCellsPerRow) + numberOfCellsPerRow - 1).ToString();
+            cellView.name = "Cell " + (dataIndex * numberOfCellsPerRow).ToString() + " to " +
+                            ((dataIndex * numberOfCellsPerRow) + numberOfCellsPerRow - 1).ToString();
 
             // pass in a reference to our data set with the offset for this cell
             cellView.SetData(ref _data, dataIndex * numberOfCellsPerRow);
