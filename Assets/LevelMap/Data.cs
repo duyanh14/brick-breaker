@@ -5,9 +5,7 @@
     /// </summary>
     public class Data
     {
-        public int level;
-        public bool disable;
-        public int star;
+        public Level level;
         public bool line;
     }
 }

@@ -25,27 +25,27 @@ namespace EnhancedScrollerDemos.GridSimulation
             {
                 this.data = data;
                 
-                if (data.level == 1)
+                if (data.level.level == 1)
                 {
                     level.text = "";
                     tutorial.SetActive(true);
                 }
                 else
                 {
-                    level.text = data.level.ToString();
+                    level.text = data.level.level.ToString();
                     tutorial.SetActive(false);
                 }
 
                 for (int i = 0; i < star.Length; i++)
                 {
-                    if (i + 1 <= data.star)
+                    if (i + 1 <= data.level.star)
                     {
                         continue;
                     }
                     star[i].SetActive(false);
                 }
 
-                disable.SetActive(data.disable);
+                disable.SetActive(data.level.disable);
                 lineV.SetActive(data.line);
             }
         }

@@ -69,9 +69,7 @@ namespace EnhancedScrollerDemos.GridSimulation
                     {
                         _data.Add(new Data()
                         {
-                            level = j,
-                            disable = j > 2 ? true : false, // thay doi
-                            star = 2, // thay doi
+                            level = Level.get(j),
                             line = (j != 1 && j == z)? true : false
                         });
                     }
@@ -83,9 +81,7 @@ namespace EnhancedScrollerDemos.GridSimulation
                         
                         _data.Add(new Data()
                         {
-                            level = j,
-                            disable = j > 2 ? true : false, // thay doi
-                            star = 2, // thay doi
+                            level = Level.get(j),
                             line = (j != 1 && j == z)? true : false
                         });
                     }
@@ -97,6 +93,7 @@ namespace EnhancedScrollerDemos.GridSimulation
           
             // tell the scroller to reload now that we have the data
             scroller.ReloadData();
+            scroller.JumpToDataIndex(_data.Count);
         }
 
         #region EnhancedScroller Handlers

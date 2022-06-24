@@ -44,5 +44,5 @@ public class AllData
         set { this.GetType().GetProperty(propertyName).SetValue(this, value, null); }
     }
 
-    public Dictionary<int, object> Level { get; set; } = new Dictionary<int, object>();
+    public Dictionary<int, Level> Level { get; set; } = new Dictionary<int, Level>();
 }
