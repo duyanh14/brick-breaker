@@ -4,10 +4,13 @@ using EnhancedUI.EnhancedScroller;
 using EnhancedUI;
 using System;
 using TMPro;
+using UnityEngine.Events;
+using UnityEngine.EventSystems;
+using UnityEngine.UIElements;
 
 namespace EnhancedScrollerDemos.GridSimulation
 {
-    public class RowCellView : MonoBehaviour
+    public class RowCellView : MonoBehaviour, IPointerDownHandler 
     {
         public GameObject container;
         public GameObject lineH;
@@ -18,13 +21,13 @@ namespace EnhancedScrollerDemos.GridSimulation
         public GameObject disable;
 
         private Data data;
-        
+
         public void SetData(Data data)
         {
             if (data != null)
             {
                 this.data = data;
-                
+
                 if (data.level.level == 1)
                 {
                     level.text = "";
@@ -42,12 +45,18 @@ namespace EnhancedScrollerDemos.GridSimulation
                     {
                         continue;
                     }
+
                     star[i].SetActive(false);
                 }
 
                 disable.SetActive(data.level.disable);
                 lineV.SetActive(data.line);
             }
+        }
+
+        public void OnPointerDown(PointerEventData eventData)
+        {
+            Debug.Log(data.level.level);
         }
     }
 }

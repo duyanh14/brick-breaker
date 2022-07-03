@@ -25,7 +25,6 @@ public class Level
         {
             return data[level];
         }
-
         return new Level(level, 0, true);
     }
 
